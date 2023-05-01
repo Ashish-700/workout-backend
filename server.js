@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
+
 require("dotenv").config();
 
 //routes
@@ -10,6 +12,8 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 //middleware
+app.use(cors()); //for cors
+
 app.use(express.json()); //allows req to get the data of the post request, which is passing in adress
 
 app.use((req, res, next) => {
